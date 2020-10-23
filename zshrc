@@ -103,11 +103,9 @@ source $ZSH/oh-my-zsh.sh
 export WIN_IP=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
 # # 删除 ~/.proxychains.conf 中 [ProxyList] 所在行到文件末尾的全部内容
 sed -i '/\[ProxyList\]/,$d' ~/.proxychains.conf
-# # 往文件末尾添加socks5设置，20807是我的clash的本地端口号
-echo '[ProxyList]\nsocks5 '${WIN_IP}' 10808' >> ~/.proxychains.conf
+# # 往文件末尾添加socks5设置，10809是我的clash的本地端口号
+echo '[ProxyList]\nsocks5 '${WIN_IP}' 10809' >> ~/.proxychains.conf
 # # 设置别名；使用 ~/.proxychains.conf 作为proxychains的配置文件；让proxychains quiet（不输出一大串东西）
 alias pc='proxychains4 -q -f ~/.proxychains.conf'
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 export PATH="$HOME/.local/bin:$PATH"
 alias adb='/mnt/c/Users/xiaohei/Downloads/platform-tools_r30.0.1-windows/platform-tools/adb.exe'
